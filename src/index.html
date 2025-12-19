@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Desarrollador Software</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    header { text-align: center; padding: 50px 0; color: white; }
+    .profile-section { background: white; border-radius: 20px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .profile-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; display: block; border: 5px solid #667eea; }
+    .photo-upload { text-align: center; margin-bottom: 20px; }
+    .photo-upload input { display: none; }
+    .photo-upload label { background: #667eea; color: white; padding: 10px 20px; border-radius: 25px; cursor: pointer; transition: background 0.3s; }
+    .photo-upload label:hover { background: #764ba2; }
+    h1 { font-size: 3em; margin-bottom: 10px; }
+    h2 { font-size: 1.5em; margin-bottom: 20px; opacity: 0.9; }
+    .description { font-size: 1.2em; text-align: center; max-width: 600px; margin: 0 auto 30px; }
+    .social-section { text-align: center; }
+    .social-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .social-links a { display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: all 0.3s; }
+    .social-links a:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+    .social-links .github { background: #333; }
+    .social-links .linkedin { background: #0077b5; }
+    @media (max-width: 768px) { h1 { font-size: 2em; } .profile-section { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>David Martínez Sánchez</h1>
+        <h2>Estudiante de DAM</h2>
+    </header>
+
+    <section class="profile-section">
+        <div class="photo-upload">
+            <input type="file" id="photoInput" accept="image/*">
+                <label for="photoInput">Añadir/ Cambiar Foto</label>
+                <img id="profilePhoto" class="profile-photo" src="resources/Portafolio_Foto.png" alt="Tu foto">
+        </div>
+        <div class="description">
+
+            ¡Hola! Soy David, estudiante de DAM con una mentalidad orientada a la eficiencia y el aprendizaje continuo.<br>
+
+            Mi pasión es construir aplicaciones robustas y escalables, moviéndome con soltura entre el desarrollo backend y el ecosistema móvil.<br>
+
+            Domino el ecosistema de Java y Kotlin para dar vida a ideas en Android, aprovecho la versatilidad de Python para automatizar y analizar, y diseño bases de datos sólidas que sirven como cimiento de cualquier proyecto.<br>
+
+             No solo escribo código; diseño experiencias funcionales. ¿Hablamos? <br>       </div>
+    </section>
+
+    <section class="social-section profile-section">
+        <h2>Mis Redes Sociales</h2>
+        <div class="social-links">
+            <a href="https://github.com/Dfenrisf" class="github" target="_blank">
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/david-mart%C3%ADnez-s%C3%A1nchez-97468a305/" class="linkedin" target="_blank">
+                LinkedIn
+            </a>
+        </div>
+    </section>
+</div>
+
+<script>
+    const photoInput = document.getElementById('photoInput');
+    const profilePhoto = document.getElementById('profilePhoto');
+
+    photoInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+    profilePhoto.src = e.target.result;
+};
+    reader.readAsDataURL(file);
+}
+});
+</script>
+</body>
+</html>
